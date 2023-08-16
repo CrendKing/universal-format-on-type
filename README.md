@@ -1,12 +1,17 @@
-Trigger a formatting between the two matching braces whenever user types '}', universally on any languages supporting range formatting.
+Bring VSCode's format-on-type feature to all languages, even if some do not natively support it.
 
-Sometimes a language has a formatter, which has range formatting functionality (i.e. able to "Format Selection"), but lacks on-type formatting (i.e. able to format when user types certain keys). This extension adds the on-type formatting specifically for '}' key, to format the code block surrounded by the matching braces. It is equivalent to the "Automatically format block when I type a }" feature in Visual Studio 2022.
+VSCode gives various powers to language formatters. Which features to implement is up to the designers. One of such powers is range formatting, which triggers a formatting for the `Format Selection` command. Another is format-on-type, which triggers a formatting whenever user types certain characters. For language formatters that only implement the former and lack the latter, this extension aims to fill the gap.
+
+This extension adds 3 types of on-type formatting: closing curly bracket / brace ('}'), newline ('\\n') and semicolon (';') :
+
+* For closing brace, find the matching opening brace and format the block in-between. Equivalent to the "Automatically format block when I type a }" feature in Visual Studio.
+* For newline and semicolon, format the current line. Equivalent to the "Automatically format statement when I type a ;" feature in Visual Studio.
+
+This extension comes with settings to customize on which languages will each of the formatting be enabled. By default all suitable languages are enabled.
+
+Note that if a language formatter has already implemented the on-type formatting feature, VSCode may prioritize the language formatter thus ignore this extension.
 
 ### Requirement
 
-* The `editor.formatOnType` setting is required to set to `true` to activate the functionality.
-* A language formatter capable of range formatting. Note that if the language formatter also comes with the "on-type" formatting feature, VSCode may prioritize the language formatter over this extension.
-
-### Configuration
-
-The extension comes with capability to customize on which languages will the functionality be used. By default all popular languages (such as C/C++, Java, JSON) are included. If this is not desired, tweak the `formatOnBrace.languages` setting.
+* The setting `editor.formatOnType` must be `true`.
+* A language formatter supporting range formatting.

@@ -1,8 +1,8 @@
 {
-    "name": "format-on-brace",
-    "displayName": "Format On Brace",
+    "name": "universal-format-on-type",
+    "displayName": "Universal Format On Type",
     "publisher": "crendking",
-    "description": "Trigger a formatting between the two matching braces whenever user types '}', universally on any languages supporting range formatting.",
+    "description": "Adds the format-on-type functionality to any language supporting range formatting.",
     "version": "0.1.0",
     "license": "See license in LICENSE.txt",
     "engines": {
@@ -14,7 +14,7 @@
     "icon": "media/icon.png",
     "repository": {
         "type": "git",
-        "url": "https://github.com/CrendKing/format-on-brace.git"
+        "url": "https://github.com/CrendKing/universal-format-on-type.git"
     },
     "activationEvents": [
         "onStartupFinished"
@@ -22,15 +22,17 @@
     "main": "./out/extension.js",
     "contributes": {
         "configuration": {
-            "title": "Universal Format On Brace",
+            "title": "Universal Format On Type",
             "properties": {
-                "formatOnBrace.languages": {
+                "universalFormatOnType.brace": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "default": [
                         "c",
+                        "clojure",
+                        "coffeescript",
                         "cpp",
                         "csharp",
                         "cuda-cpp",
@@ -52,7 +54,53 @@
                         "swift",
                         "typescript"
                     ],
-                    "markdownDescription": "List of [language identifiers](https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers) where the formatter is activated. Should only contain languages where statement blocks are defined by braces, such as C."
+                    "markdownDescription": "List of [language identifiers](https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers) to use formatting on closing brace '}'."
+                },
+                "universalFormatOnType.newline": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": [
+                        "bat",
+                        "clojure",
+                        "css",
+                        "fsharp",
+                        "go",
+                        "powershell",
+                        "python",
+                        "r",
+                        "ruby",
+                        "shellscript",
+                        "swift",
+                        "vb"
+                    ],
+                    "markdownDescription": "List of [language identifiers](https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers) to use formatting on newline."
+                },
+                "universalFormatOnType.semicolon": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": [
+                        "c",
+                        "coffeescript",
+                        "cpp",
+                        "csharp",
+                        "cuda-cpp",
+                        "groovy",
+                        "java",
+                        "javascript",
+                        "objective-c",
+                        "objective-cpp",
+                        "perl",
+                        "perl6",
+                        "php",
+                        "rust",
+                        "scss",
+                        "typescript"
+                    ],
+                    "markdownDescription": "List of [language identifiers](https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers) to use formatting on semicolon ';'."
                 }
             }
         }
