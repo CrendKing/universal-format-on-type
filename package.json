@@ -1,0 +1,71 @@
+{
+    "name": "format-on-brace",
+    "displayName": "Format On Brace",
+    "publisher": "crendking",
+    "description": "Trigger a formatting between the two matching braces whenever user types '}', universally on any languages supporting range formatting.",
+    "version": "0.1.0",
+    "license": "See license in LICENSE.txt",
+    "engines": {
+        "vscode": "^1.49.0"
+    },
+    "categories": [
+        "Formatters"
+    ],
+    "icon": "media/icon.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/CrendKing/format-on-brace.git"
+    },
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "configuration": {
+            "title": "Universal Format On Brace",
+            "properties": {
+                "formatOnBrace.languages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": [
+                        "c",
+                        "cpp",
+                        "csharp",
+                        "cuda-cpp",
+                        "go",
+                        "groovy",
+                        "java",
+                        "javascript",
+                        "json",
+                        "jsonc",
+                        "objective-c",
+                        "objective-cpp",
+                        "perl",
+                        "perl6",
+                        "php",
+                        "powershell",
+                        "r",
+                        "rust",
+                        "scss",
+                        "swift",
+                        "typescript"
+                    ],
+                    "markdownDescription": "List of [language identifiers](https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers) where the formatter is activated. Should only contain languages where statement blocks are defined by braces, such as C."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "pnpm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/node": "*",
+        "@types/vscode": "*",
+        "@vscode/vsce": "*",
+        "typescript": "*"
+    }
+}

@@ -1,0 +1,5 @@
+*.ps1
+*.vsix
+node_modules/
+out/
+pnpm-lock.yaml
