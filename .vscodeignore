@@ -1,0 +1,10 @@
+.gitignore
+.vscode/**
+.yarnrc
+*.ps1
+**/.eslintrc.json
+**/*.map
+**/*.ts
+**/tsconfig.json
+pnpm-lock.yaml
+src/**
