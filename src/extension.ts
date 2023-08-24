@@ -20,10 +20,11 @@ class UniversalOnTypeFormattingProvider implements vscode.OnTypeFormattingEditPr
                 editor.selection = new vscode.Selection(position, position)
                 break
             case '\n':
-                formatRange = new vscode.Range(new vscode.Position(position.line - 1, 0), new vscode.Position(position.line, 0))
-                break
             case ';':
-                formatRange = new vscode.Range(new vscode.Position(position.line, 0), new vscode.Position(position.line + 1, 0))
+                const currentLine = ch === '\n' ? position.line - 1 : position.line
+                const start = currentLine > 0 ? document.lineAt(currentLine - 1).range.end : new vscode.Position(0, 0)
+                const end = currentLine < document.lineCount - 1 ? new vscode.Position(currentLine + 1, 0) : document.lineAt(currentLine).rangeIncludingLineBreak.end
+                formatRange = new vscode.Range(start, end)
                 break
         }
 
