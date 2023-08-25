@@ -11,6 +11,12 @@
     "categories": [
         "Formatters"
     ],
+    "keywords": [
+        "brace",
+        "curly bracket",
+        "newline",
+        "semicolon"
+    ],
     "icon": "media/icon.png",
     "repository": {
         "type": "git",
