@@ -15,3 +15,13 @@ Note that if a language formatter has already implemented the on-type formatting
 
 * The setting `editor.formatOnType` must be `true`.
 * A language formatter supporting range formatting.
+
+### Demo: Editing a "Hello World" in [Rust](https://www.rust-lang.org/)
+
+Without the extension:
+
+![Without the extension](media/without.gif)
+
+With the extension:
+
+![With the extension](media/with.gif)

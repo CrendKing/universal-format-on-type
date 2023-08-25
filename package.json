@@ -3,7 +3,7 @@
     "displayName": "Universal Format On Type",
     "publisher": "crendking",
     "description": "Adds the format-on-type functionality to any language supporting range formatting.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "license": "See license in LICENSE.txt",
     "engines": {
         "vscode": "^1.49.0"
