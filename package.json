@@ -3,7 +3,7 @@
     "displayName": "Universal Format On Type",
     "publisher": "crendking",
     "description": "Adds the format-on-type functionality to any language supporting range formatting.",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "license": "See license in LICENSE.txt",
     "engines": {
         "vscode": "^1.49.0"
@@ -71,7 +71,6 @@
                         "bat",
                         "clojure",
                         "fsharp",
-                        "go",
                         "powershell",
                         "python",
                         "r",
@@ -87,24 +86,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "default": [
-                        "c",
-                        "coffeescript",
-                        "cpp",
-                        "csharp",
-                        "cuda-cpp",
-                        "groovy",
-                        "java",
-                        "javascript",
-                        "objective-c",
-                        "objective-cpp",
-                        "perl",
-                        "perl6",
-                        "php",
-                        "rust",
-                        "scss",
-                        "typescript"
-                    ],
+                    "default": [],
                     "markdownDescription": "List of [language identifiers](https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers) to use formatting on semicolon ';'."
                 }
             }
