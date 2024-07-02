@@ -93,7 +93,7 @@
         }
     },
     "scripts": {
-        "vscode:prepublish": "pnpm run compile",
+        "vscode:prepublish": "bun run compile",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./"
     },

@@ -1,9 +1,7 @@
 .gitignore
 .vscode/**
-.yarnrc
 *.ps1
 **/*.map
 **/*.ts
 **/tsconfig.json
-pnpm-lock.yaml
 src/**
