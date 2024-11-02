@@ -1,5 +1,7 @@
 import * as vscode from 'vscode'
 
+const EXTENSION_NAME = 'universalFormatOnType'
+
 class UniversalOnTypeFormattingProvider implements vscode.OnTypeFormattingEditProvider {
     public async provideOnTypeFormattingEdits(
         document: vscode.TextDocument,
@@ -30,12 +32,16 @@ class UniversalOnTypeFormattingProvider implements vscode.OnTypeFormattingEditPr
     }
 }
 
-export function activate(context: vscode.ExtensionContext) {
-    const config = vscode.workspace.getConfiguration('universalFormatOnType')
+function setup(context: vscode.ExtensionContext) {
+    // unregister all previous subscriptions except the one from onDidChangeConfiguration()
+    while (context.subscriptions.length > 1) {
+        context.subscriptions.pop()?.dispose()
+    }
 
+    const config = vscode.workspace.getConfiguration(EXTENSION_NAME)
     const langToTriggerChars = new Map<string, string[]>()
 
-    const setdefault = (lang: string) => {
+    function setdefault(lang: string) {
         const def: string[] = []
         langToTriggerChars.set(lang, def)
         return def
@@ -52,6 +58,18 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.languages.registerOnTypeFormattingEditProvider(lang, new UniversalOnTypeFormattingProvider(), triggerChars.shift()!, ...triggerChars)
         )
     }
+}
+
+export function activate(context: vscode.ExtensionContext) {
+    context.subscriptions.push(
+        vscode.workspace.onDidChangeConfiguration(evt => {
+            if (evt.affectsConfiguration(`${EXTENSION_NAME}`)) {
+                setup(context)
+            }
+        })
+    )
+
+    setup(context)
 }
 
 export function deactivate() { }

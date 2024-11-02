@@ -1,3 +1,7 @@
+# 0.1.4
+
+Update formatter registrations when configuration changes.
+
 # 0.1.3
 
 Languages which already use brace to denote blocks tend to mess up indentation if the "semicolon" setting is also on. Remove all languages from default "semicolon" setting, since all of them are already covered by the "brace" setting.
