@@ -11,12 +11,12 @@ This extension comes with settings to customize on which languages will each of 
 
 Note that if a language formatter has already implemented the on-type formatting feature, VSCode may prioritize the language formatter thus ignore this extension.
 
-### Requirement
+## Requirement
 
 * The setting `editor.formatOnType` must be `true`.
 * A language formatter supporting range formatting.
 
-### Demo: Editing a "Hello World" in [Rust](https://www.rust-lang.org/)
+## Demo: Editing a "Hello World" in [Rust](https://www.rust-lang.org/)
 
 Without the extension:
 
